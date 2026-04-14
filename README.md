@@ -1,163 +1,256 @@
-# 🌤️ Daily Climate Forecasting — Delhi
-### Machine Learning Solution for Mean Temperature Prediction
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Platform-Google%20Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white"/>
-  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Model-Ridge%20Regression-success?style=for-the-badge"/>
-</p>
+# Daily Climate Forecasting — ML Solution
+## README / Project Documentation
 
 ---
 
-## 📌 Project Overview
+## PROJECT OVERVIEW
 
-This project predicts the **mean daily temperature (°C)** for Delhi using machine learning applied to the [Kaggle Daily Climate Time Series Dataset (2013–2017)](https://www.kaggle.com/datasets/sumanthvrao/daily-climate-time-series-data).
+This project focuses on predicting the mean daily temperature (°C) for Delhi using machine learning techniques applied to the Kaggle Daily Climate Time Series dataset (2013–2017).
 
-| Detail | Value |
-|---|---|
-| 🎯 **Target Variable** | Mean Daily Temperature (°C) |
-| 📅 **Test Period** | January – April 2017 (114 days) |
-| 🏆 **Best Model** | Ridge Regression |
-| 📊 **R² Score** | ~0.93 |
-| 📉 **MAE** | ~1.34°C |
+- **Dataset:** Kaggle — Daily Climate Time Series (Delhi)
+- **Target Variable:** Mean daily temperature (°C)
+- **Test Period:** January – April 2017 (114 days)
+- **Platform:** Google Colab
+- **Programming Language:** Python 3
 
 ---
 
-## 🚀 How to Run (Google Colab)
+## HOW TO RUN ON GOOGLE COLAB
 
-### Step 1 — Open the Notebook
+### Step 1 — Open the Notebook in Colab
 
-**Option A — Upload manually:**
-1. Go to [colab.research.google.com](https://colab.research.google.com)
-2. Click **File → Upload notebook**
-3. Select `Delhi_Climate_Forecasting_FINAL_V2.ipynb`
+**Option A: Upload manually**
+- Go to: https://colab.research.google.com
+- Click File → Upload notebook
+- Select `Code.ipynb` from your computer
 
-**Option B — Open from Google Drive:**
-1. Upload the `.ipynb` file to Google Drive
-2. Right-click → **Open with → Google Colaboratory**
+**Option B: Open from Google Drive**
+- Upload the `.ipynb` file to Google Drive
+- Right-click the file → Open with → Google Colaboratory
 
-### Step 2 — No Setup Required ✅
+---
 
-> All required libraries (**NumPy, Pandas, Matplotlib, Scikit-learn**) come pre-installed in Colab.
-> The dataset is **automatically downloaded from GitHub** — no manual download needed.
-> Just ensure you have an **active internet connection**.
+### Step 2 — No Setup Required
+
+- All required libraries (NumPy, Pandas, Matplotlib, Scikit-learn) are pre-installed in Google Colab.
+- No additional installation (`pip install`) is needed.
+- The dataset is automatically downloaded from GitHub within the notebook.
+- No manual data download is required.
+- Ensure you have an active internet connection.
+
+---
 
 ### Step 3 — Run All Cells
 
-```
-Runtime → Run all   (or press Ctrl + F9)
-```
-Or execute cells one-by-one with `Shift + Enter`.
+- Go to **Runtime → Run all** (or press `Ctrl + F9`)
+- Alternatively, execute each cell using `Shift + Enter`
 
-### Step 4 — Download Output Plots (Optional)
-
-| Plot File | Description |
-|---|---|
-| `eda_all_features.png` | Time-series plots for all climate variables |
-| `feature_importance.png` | Top features ranked by model importance |
-
-To download: click the **📁 folder icon** in the sidebar → right-click file → **Download**
+The notebook will automatically execute all steps and display:
+- Results
+- Visualizations
+- Final performance summary
 
 ---
 
-## 🔬 What the Notebook Does — Step by Step
+### Step 4 — Save Output Plots (Optional)
 
-<details>
-<summary><b>Step 1 — Data Loading & Cleaning</b></summary>
+The following plots are generated:
 
-- Loads dataset directly from GitHub
-- Corrects physically invalid pressure values
-- Handles missing dates via time-based interpolation
-</details>
+- `eda_all_features.png` — Time-series plots for all climate variables
+- `feature_importance.png` — Top features ranked by model importance
 
-<details>
-<summary><b>Step 2 — Exploratory Data Analysis (EDA)</b></summary>
-
-- Time-series plots revealing seasonal temperature patterns
-- Variation analysis across humidity, wind speed, and pressure
-- Feature correlation analysis to identify influential variables
-</details>
-
-<details>
-<summary><b>Step 3 — Feature Engineering (31 Features)</b></summary>
-
-| Category | Features |
-|---|---|
-| 🕐 Temporal | Day of year, month, year, day of week, week of year |
-| 🌊 Fourier | 4 sine/cosine pairs for annual seasonality |
-| 🌡️ Temperature Lags | Lag 1, 2, 3, 7, 14, 30, 365 days |
-| 📈 Rolling Statistics | 7-day & 30-day rolling mean and std |
-| 💨 Exogenous Lags | Humidity, wind speed, pressure (lag 1 & 7) |
-</details>
-
-<details>
-<summary><b>Step 4 — Model Training & Comparison</b></summary>
-
-Three models trained and compared against a **Seasonal Naïve baseline**:
-- ✅ **Ridge Regression** ← Best performer
-- 🌲 Random Forest Regressor
-- 📈 Gradient Boosting Regressor
-</details>
-
-<details>
-<summary><b>Step 5 — Time-Series Cross-Validation</b></summary>
-
-- 5-fold time-series CV (temporal order preserved, no data leakage)
-- Stable folds achieve: MAE ≈ 1.46, RMSE ≈ 1.87, R² ≈ 0.93
-</details>
-
-<details>
-<summary><b>Step 6 — Feature Importance Analysis</b></summary>
-
-- Top 15 most influential features identified
-- Temperature lag features (recent days) rank highest
-- Fourier/seasonal features and rolling stats also contribute
-</details>
-
-<details>
-<summary><b>Steps 7–11 — Evaluation & Error Analysis</b></summary>
-
-- Predictions table: actual vs predicted for all 114 test days
-- Actual vs Predicted visualization with residual plot
-- Monthly MAE/RMSE trends and error distribution
-- Individual test case analysis across seasonal phases
-</details>
+To download:
+- Click the folder icon (📁) in the left sidebar
+- Right-click the file → Download
 
 ---
 
-## 📊 Final Results
+## WHAT THE NOTEBOOK DOES — STEP BY STEP
 
-| Metric | Score |
-|---|---|
-| **MAE** | ~1.3 – 1.8°C |
-| **RMSE** | ~1.7 – 2.2°C |
-| **R²** | ~0.90 – 0.94 |
-| **MAPE** | ~5 – 8% |
-| **Bias** | -0.022°C (negligible) |
+### Step 1 — Data Loading & Cleaning
 
-### ✅ Practical Accuracy
-- **73%** of predictions fall within **±2°C**
-- **92%** of predictions fall within **±3°C**
-- **~49% reduction** in MAE & RMSE vs Seasonal Naïve baseline
+The dataset is loaded from GitHub and prepared for analysis.
+
+The data cleaning process includes correcting physically invalid pressure values and handling missing dates using time-based interpolation.
+
+These preprocessing steps ensure data consistency and improve the reliability of the model.
 
 ---
 
-## 🗂️ Dataset Source
+### Step 2 — Exploratory Data Analysis (EDA)
 
-- **Kaggle:** [Daily Climate Time Series Data (Delhi)](https://www.kaggle.com/datasets/sumanthvrao/daily-climate-time-series-data)
-- **GitHub (auto-loaded in notebook):** [KatariyaMohit/Daily-Climate-time-series-forecasting](https://github.com/KatariyaMohit/Daily-Climate-time-series-forecasting)
+This step analyzes the dataset to understand trends and relationships between different climate variables.
 
-> The notebook automatically retrieves the dataset from GitHub. No manual download required.
+The time-series plots show clear seasonal patterns in temperature, along with variations in humidity, wind speed, and pressure over time.
 
----
-
-## 🛠️ Tech Stack
-
-```
-Python 3  |  NumPy  |  Pandas  |  Matplotlib  |  Scikit-learn  |  Google Colab
-```
+Feature correlation analysis is performed to identify relationships between variables and their influence on temperature.
 
 ---
 
-<p align="center">Made with ☀️ for short-term climate forecasting</p>
+### Step 3 — Feature Engineering
+
+A total of **31 features** are created across five categories to capture temporal patterns and improve prediction accuracy:
+
+- **Temporal Features**
+  Day of year, month, year, day of week, week of year
+
+- **Fourier Features**
+  4 sine/cosine pairs to capture annual seasonality
+
+- **Temperature Lag Features**
+  Lag values: 1, 2, 3, 7, 14, 30, 365 days
+
+- **Rolling Statistics**
+  7-day and 30-day rolling mean and standard deviation
+
+- **Exogenous Lag Features**
+  Humidity, wind speed, and pressure (lag 1 & 7)
+
+These features help the model capture time dependencies, seasonal patterns, and external influences on temperature.
+
+---
+
+### Step 4 — Model Training & Comparison
+
+Three machine learning models are trained and compared against a Seasonal Naïve baseline:
+
+- Gradient Boosting Regressor
+- Random Forest Regressor
+- Ridge Regression
+
+The models are evaluated using MAE, RMSE, R², and MAPE on the test dataset.
+
+The results show that **Ridge Regression** performs the best among all models, achieving the lowest error and highest overall performance based on RMSE. Gradient Boosting and Random Forest also provide competitive results but are slightly less accurate in comparison.
+
+Overall, machine learning models significantly outperform the Seasonal Naïve baseline, demonstrating their ability to capture temporal patterns and improve prediction accuracy.
+
+The best-performing model selected for further analysis is **Ridge Regression**.
+
+---
+
+### Step 5 — Time-Series Cross-Validation
+
+This step uses **5-fold time-series cross-validation** to evaluate model performance while preserving temporal order and preventing data leakage.
+
+The results show that the first fold has higher error due to a smaller training window, which is expected in time-series modeling. From subsequent folds, the performance stabilizes, indicating consistent learning.
+
+Across the stable folds, the model achieves:
+- MAE ≈ 1.46
+- RMSE ≈ 1.87
+- R² ≈ 0.93
+
+The final test MAE (~1.34) is consistent with cross-validation results, suggesting that the model generalizes well without overfitting.
+
+---
+
+### Step 6 — Feature Importance Analysis
+
+This step identifies the **top 15 most influential features** contributing to the model's predictions.
+
+The results show that temperature lag features (especially recent days) have the highest importance, indicating strong temporal dependency in the data. Seasonal components (such as Fourier features) and rolling statistics also contribute to the model's performance, while exogenous variables like humidity and pressure have relatively lower impact.
+
+---
+
+### Step 7 — Predictions Table
+
+This table presents the actual and predicted temperature values for all 114 test days.
+
+It allows a direct comparison between model predictions and true values, along with the corresponding error and absolute error for each day.
+
+The table helps identify patterns in prediction accuracy and highlights cases with higher errors.
+
+---
+
+### Step 8 — Actual vs Predicted Visualization
+
+The plot shows a comparison between actual and predicted temperature values over the test period.
+
+The predicted values closely follow the overall trend of the actual temperatures, indicating that the model captures the underlying patterns effectively.
+
+The residual plot shows that most errors are small and centered around zero, suggesting that the model does not have significant bias and performs consistently across time.
+
+---
+
+### Step 9 — Error Analysis
+
+The error analysis provides insights into model performance across different conditions and evaluates its practical usability.
+
+The model achieves consistent performance across time, as reflected in the monthly MAE and RMSE trends, along with a stable error distribution.
+
+**Practical Accuracy:**
+- 73% of predictions fall within ±2°C of actual temperature values
+- 92% of predictions fall within ±3°C of actual temperature values
+- Bias (mean residual): -0.022°C, indicating negligible systematic error
+
+---
+
+### Step 10 — Individual Test Case Analysis
+
+This section evaluates model performance on selected dates across different seasonal conditions to assess robustness and generalization.
+
+The model predictions for the selected test cases are summarized as follows:
+
+- **2017-01-15 (Mid-winter):**
+  The model underestimates the temperature by 3.29°C, resulting in an accuracy of 80.0%. This is the highest error among the selected cases, likely due to limited training data in the early phase of the time series.
+
+- **2017-02-01 (Late winter):**
+  The prediction is very close to the actual value, with an error of only 0.92°C and an accuracy of 94.0%, indicating improved performance as more training data becomes available.
+
+- **2017-02-20 (Pre-spring):**
+  The model maintains good accuracy (94.3%) with a small error of 1.32°C, showing stable performance during seasonal transition.
+
+- **2017-03-15 (Spring):**
+  The prediction error is minimal (0.73°C) with a high accuracy of 96.3%, demonstrating strong model performance under moderate temperature conditions.
+
+- **2017-04-10 (Pre-summer):**
+  The model achieves excellent accuracy (99.3%) with a negligible error of 0.20°C, indicating highly reliable predictions in later periods.
+
+Overall, the average absolute error across the five test cases is approximately **1.29°C**. The model shows improved accuracy as more training data becomes available and performs consistently well across different seasonal phases, demonstrating strong generalization capability.
+
+---
+
+### Step 11 — Final Performance Summary
+
+The final model performance demonstrates strong predictive capability for daily temperature forecasting.
+
+The best-performing model is **Ridge Regression**, evaluated on the test period (January–April 2017).
+
+The model achieves:
+- MAE of **1.34°C**
+- RMSE of **1.66°C**
+- R² score of **0.93**, indicating that approximately 93% of the variance is explained
+- MAPE of **6.82%**
+
+Compared to the Seasonal Naïve baseline, the model shows significant improvement, reducing both MAE and RMSE by approximately **49%**.
+
+The model also demonstrates strong practical accuracy, with most predictions falling within ±2–3°C of actual values.
+
+Cross-validation results further confirm model stability, with consistent performance across folds (MAE ≈ 1.46, RMSE ≈ 1.87, R² ≈ 0.92), indicating good generalization and no overfitting.
+
+Overall, the model provides reliable and accurate temperature predictions, making it suitable for short-term climate forecasting applications.
+
+---
+
+## FINAL RESULTS
+
+**Best Performing Model: Ridge Regression**
+
+- **MAE** (Mean Absolute Error): ~1.3 – 1.8 °C
+- **RMSE** (Root Mean Squared Error): ~1.7 – 2.2 °C
+- **R²** (Coefficient of Determination): ~0.90 – 0.94
+- **MAPE** (Mean Absolute Percentage Error): ~5 – 8%
+
+A large majority of predictions fall within ±2°C of actual temperature values.
+
+---
+
+## DATASET SOURCE
+
+**Kaggle — Daily Climate Time Series Data (Delhi)**
+https://www.kaggle.com/datasets/sumanthvrao/daily-climate-time-series-data
+
+- The notebook automatically retrieves the dataset from the author's GitHub repository.
+- No manual download is required.
+
+**GitHub Source:**
+https://github.com/KatariyaMohit/Daily-Climate-time-series-forecasting
