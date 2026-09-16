@@ -15,6 +15,17 @@ This project focuses on predicting the mean daily temperature (°C) for Delhi us
 
 ---
 
+## Team Members
+
+| Name                | Roll Number  |
+|---------------------|--------------|
+| M.M.Prudhvi Sai     | 230001047    |
+| L.Yashwanth Chowhan | 230001046    |
+| M.Rajavardhan       | 230001053    |
+| Mohit Katariya      | 230001055    |
+| L.Praveen Kumar     | 230041018    |
+---
+
 ## HOW TO RUN ON GOOGLE COLAB
 
 ### Step 1 — Open the Notebook in Colab
